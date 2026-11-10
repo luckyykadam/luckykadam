@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucky Kadam | Student Portfolio & 3D Interactive Lab</title>
+  <meta name="description" content="Portfolio of Lucky Ashok Kadam - Undergraduate student at Dyal Singh College, University of Delhi studying Computer Applications & Economics. Exploring Technology, Data Analytics, Python, C++, and AI." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Local Three.js Library -->
+  <script src="assets/three.min.js"></script>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="alex-theme">
+
+  <!-- Custom Trailing Animated Cursor -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Particle Burst Canvas -->
+  <canvas id="particle-burst-canvas"></canvas>
+
+  <!-- Top Navigation Bar -->
+  <header class="top-navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand">LUCKY KADAM<span class="brand-dot">.</span></a>
+
+      <nav class="nav-links">
+        <a href="#hero" class="nav-item">HOME</a>
+        <a href="#skills-3d-lab" class="nav-item">3D SKILLS LAB</a>
+        <a href="#about" class="nav-item">ABOUT</a>
+        <a href="#learning" class="nav-item">WHAT I LEARN</a>
+        <a href="#certifications" class="nav-item">CERTIFICATIONS</a>
+        <a href="#explorations" class="nav-item">EXPLORATIONS</a>
+        <a href="#contact" class="nav-item">CONTACT</a>
+      </nav>
+
+      <a href="#contact" class="nav-pill-btn magnetic-target">
+        <span>LET'S CONNECT</span>
+      </a>
+
+      <button class="mobile-menu-btn" id="mobile-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       HERO SECTION
+       - Headline: HI, I'M LUCKY KADAM
+       - Subtitle: Cleanly positioned LOWER with generous margin (No Collision!)
+       - Interactive 3D Avatar Head tracking cursor
+       ========================================================================= -->
+  <section class="hero-section" id="hero">
+    <div class="hero-wrapper">
+      
+      <!-- Giant Headline with FULL NAME LUCKY KADAM -->
+      <h1 class="hero-giant-title">
+        HI, I'M LUCKY KADAM
+      </h1>
+
+      <!-- Flank Row: Subtitle moved lower with breathing room, completely separated from title -->
+      <div class="hero-flank-row">
+        <div class="hero-left-desc">
+          <p class="hero-tagline-text">A COLLEGE STUDENT PASSIONATE ABOUT EXPLORING TECH, DATA & ECONOMICS 🚀</p>
+          <span class="hero-college-tag">📍 Dyal Singh College • University of Delhi</span>
+        </div>
+
+        <div class="hero-right-cta">
+          <a href="#skills-3d-lab" class="gradient-pill-btn magnetic-btn">
+            <span>EXPLORE 3D LAB ↓</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Center 3D Interactive Avatar Head (Eyes Track Mouse Cursor in Real-Time) -->
+      <div class="hero-avatar-stage">
+        <div class="avatar-container" id="avatar-container">
+          <div class="avatar-head" id="avatar-head">
+            <div class="avatar-hair"></div>
+            <div class="avatar-ear ear-left">
+              <div class="ear-ring"></div>
+            </div>
+            <div class="avatar-ear ear-right">
+              <div class="ear-ring"></div>
+            </div>
+
+            <!-- Face Features -->
+            <div class="avatar-face">
+              <!-- Eyebrows -->
+              <div class="avatar-eyebrows">
+                <span class="eyebrow brow-left" id="brow-left"></span>
+                <span class="eyebrow brow-right" id="brow-right"></span>
+              </div>
+
+              <!-- Eyes with Dynamic Pupil Tracking -->
+              <div class="avatar-eyes">
+                <div class="eye eye-left">
+                  <div class="pupil" id="pupil-left">
+                    <span class="pupil-glint"></span>
+                  </div>
+                </div>
+                <div class="eye eye-right">
+                  <div class="pupil" id="pupil-right">
+                    <span class="pupil-glint"></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Nose -->
+              <div class="avatar-nose"></div>
+
+              <!-- Mouth -->
+              <div class="avatar-mouth" id="avatar-mouth"></div>
+            </div>
+          </div>
+
+          <!-- Ambient 3D Shadow -->
+          <div class="avatar-ground-shadow"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 3: 16:9 RATIO 3D NOOMO INTERACTIVE SPHERES PLAYGROUND
+       - Covered in 16:9 ratio
+       - Floating 3D physics spheres with logos of apps, websites & skills (Python, C++, AI, Data, GitHub, etc.)
+       - Interactive drag, flick, bounce & scatter
+       ========================================================================= -->
+  <section class="skills-lab-section" id="skills-3d-lab">
+    <div class="skills-lab-container">
+      
+      <div class="lab-header-row">
+        <div class="lab-title-group">
+          <span class="lab-badge">3D INTERACTIVE PLAYGROUND • 16:9 RATIO</span>
+          <h2 class="lab-main-title">SKILLS & TECH LAB</h2>
+          <p class="lab-sub-desc">Drag, flick and bounce the 3D spheres. Each sphere represents tools, skills, and coursework I am learning at college.</p>
+        </div>
+        <div class="lab-status-badge">
+          <span class="dot-live"></span>
+          <span>PHYSICS ACTIVE</span>
+        </div>
+      </div>
+
+      <!-- 16:9 Aspect Ratio Widescreen Canvas Box -->
+      <div class="widescreen-16-9-box">
+        <div class="box-16-9-inner">
+          <canvas id="three-physics-canvas"></canvas>
+
+          <!-- Floating Ambient Typography inside the 16:9 canvas -->
+          <div class="canvas-backdrop-title" aria-hidden="true">
+            <span>LUCKY KADAM</span>
+            <span class="sub-word">STUDENT • TECH • DATA</span>
+          </div>
+
+          <!-- Left Tech Category Rail -->
+          <div class="lab-left-rail">
+            <span class="rail-plus">+</span>
+            <span class="rail-tag">PYTHON</span>
+            <span class="rail-dot">·</span>
+            <span class="rail-tag">C++</span>
+            <span class="rail-dot">·</span>
+            <span class="rail-tag">DATA</span>
+            <span class="rail-dot">·</span>
+            <span class="rail-tag">AI</span>
+            <span class="rail-dot">·</span>
+            <span class="rail-tag">ECON</span>
+          </div>
+
+          <!-- Right Floating Drag Hint -->
+          <div class="lab-right-hint">
+            <div class="hint-pill">
+              <span class="hint-emoji">👆</span>
+              <span>DRAG & BOUNCE</span>
+            </div>
+          </div>
+
+          <!-- Active Skill Tooltip Overlay on Hover -->
+          <div class="sphere-info-toast" id="sphere-info-toast">
+            <span class="sit-icon" id="sit-icon">🐍</span>
+            <div class="sit-text">
+              <strong id="sit-title">Python</strong>
+              <span id="sit-desc">Beginner • Core logic & data analysis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Controls Bar under 16:9 Box -->
+      <div class="lab-controls-bar">
+        <div class="controls-left">
+          <button class="control-btn" id="btn-scatter-spheres">
+            <span>💥 SCATTER SPHERES</span>
+          </button>
+          <button class="control-btn" id="btn-color-spheres">
+            <span>🎨 COLOR THEME</span>
+          </button>
+          <button class="control-btn active" id="btn-gravity-toggle">
+            <span class="dot-green"></span>
+            <span id="gravity-status-text">GRAVITY: ON</span>
+          </button>
+        </div>
+
+        <div class="controls-right-info">
+          <span class="sparkle-star">✦</span>
+          <span>Click anywhere in the 16:9 box to trigger an impulse burst</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3: INFINITE AUTO-SCROLLING BENTO MARQUEE -->
+  <section class="marquee-section">
+    <div class="marquee-track" id="marquee-track">
+      <!-- Bento Cards -->
+      <div class="bento-card card-art-1">
+        <div class="bento-inner">
+          <div class="bento-art art-gradient-mesh">
+            <div class="art-bubble b-1"></div>
+            <div class="art-bubble b-2"></div>
+            <div class="art-bubble b-3"></div>
+          </div>
+          <span class="bento-label">Python (Beginner)</span>
+        </div>
+      </div>
+
+      <div class="bento-card card-art-2">
+        <div class="bento-inner">
+          <div class="bento-art art-data-spheres">
+            <div class="sphere s-1"></div>
+            <div class="sphere s-2"></div>
+          </div>
+          <span class="bento-label">C++ Fundamentals</span>
+        </div>
+      </div>
+
+      <div class="bento-card card-art-3">
+        <div class="bento-inner">
+          <div class="bento-art art-neon-flow">
+            <div class="flow-wave"></div>
+          </div>
+          <span class="bento-label">Data Analytics Concepts</span>
+        </div>
+      </div>
+
+      <div class="bento-card card-art-4">
+        <div class="bento-inner">
+          <div class="bento-art art-chrome-geometry">
+            <div class="chrome-ring"></div>
+            <div class="chrome-core"></div>
+          </div>
+          <span class="bento-label">Economics & Markets</span>
+        </div>
+      </div>
+
+      <div class="bento-card card-art-5">
+        <div class="bento-inner">
+          <div class="bento-art art-digital-fluid">
+            <div class="fluid-drop d-1"></div>
+            <div class="fluid-drop d-2"></div>
+          </div>
+          <span class="bento-label">Artificial Intelligence</span>
+        </div>
+      </div>
+
+      <div class="bento-card card-art-3">
+        <div class="bento-inner">
+          <div class="bento-art art-neon-flow">
+            <div class="flow-wave"></div>
+          </div>
+          <span class="bento-label">HP LIFE • Social Media Marketing</span>
+        </div>
+      </div>
+
+      <!-- Duplicate for seamless loop -->
+      <div class="bento-card card-art-1">
+        <div class="bento-inner">
+          <div class="bento-art art-gradient-mesh">
+            <div class="art-bubble b-1"></div>
+            <div class="art-bubble b-2"></div>
+            <div class="art-bubble b-3"></div>
+          </div>
+          <span class="bento-label">Python (Beginner)</span>
+        </div>
+      </div>
+
+      <div class="bento-card card-art-2">
+        <div class="bento-inner">
+          <div class="bento-art art-data-spheres">
+            <div class="sphere s-1"></div>
+            <div class="sphere s-2"></div>
+          </div>
+          <span class="bento-label">C++ Fundamentals</span>
+        </div>
+      </div>
+
+      <div class="bento-card card-art-3">
+        <div class="bento-inner">
+          <div class="bento-art art-neon-flow">
+            <div class="flow-wave"></div>
+          </div>
+          <span class="bento-label">Data Analytics Concepts</span>
+        </div>
+      </div>
+
+      <div class="bento-card card-art-4">
+        <div class="bento-inner">
+          <div class="bento-art art-chrome-geometry">
+            <div class="chrome-ring"></div>
+            <div class="chrome-core"></div>
+          </div>
+          <span class="bento-label">Economics & Markets</span>
+        </div>
+      </div>
+
+      <div class="bento-card card-art-5">
+        <div class="bento-inner">
+          <div class="bento-art art-digital-fluid">
+            <div class="fluid-drop d-1"></div>
+            <div class="fluid-drop d-2"></div>
+          </div>
+          <span class="bento-label">Artificial Intelligence</span>
+        </div>
+      </div>
+
+      <div class="bento-card card-art-3">
+        <div class="bento-inner">
+          <div class="bento-art art-neon-flow">
+            <div class="flow-wave"></div>
+          </div>
+          <span class="bento-label">HP LIFE • Social Media Marketing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: ABOUT ME (STUDENT & UNPROFESSIONAL LEARNER FOCUS) -->
+  <section class="about-section" id="about">
+    <div class="about-stage">
+      
+      <!-- Floating 3D Toys -->
+      <div class="floating-toy toy-chrome-star" data-float-speed="2.5">
+        <svg width="68" height="68" viewBox="0 0 100 100" fill="none">
+          <path d="M50 0 C52 35 65 48 100 50 C65 52 52 65 50 100 C48 65 35 52 0 50 C35 48 48 35 50 0 Z" fill="url(#chrome-gradient)" />
+          <defs>
+            <linearGradient id="chrome-gradient" x1="0" y1="0" x2="100" y2="100">
+              <stop offset="0%" stop-color="#ffffff" />
+              <stop offset="45%" stop-color="#cfd8dc" />
+              <stop offset="70%" stop-color="#90a4ae" />
+              <stop offset="100%" stop-color="#37474f" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="floating-toy toy-blue-cube" data-float-speed="1.8">
+        <div class="isometric-cube"></div>
+      </div>
+
+      <div class="floating-toy toy-red-heart" data-float-speed="3.2">
+        <div class="heart-shape">❤️</div>
+      </div>
+
+      <div class="floating-toy toy-purple-flower" data-float-speed="2.2">
+        <div class="flower-shape"></div>
+      </div>
+
+      <!-- Center Content -->
+      <div class="about-center-card">
+        <h2 class="about-giant-heading">ABOUT ME</h2>
+        <div class="about-text-content">
+          <p>
+            Hello! I'm <strong>Lucky Ashok Kadam</strong> (Lucky Kadam), an undergraduate college student at <strong>Dyal Singh College, University of Delhi</strong>, studying <strong>B.A. Computer Applications & Economics</strong>.
+          </p>
+          <p>
+            I am <em>not</em> an experienced professional — I am a curious student who loves learning new technologies, experimenting with code, and exploring data. I am currently practicing fundamental programming in <strong>Python</strong> and <strong>C++</strong>, understanding core data analytics concepts, and exploring how economics and modern technology connect.
+          </p>
+          <p>
+            I believe in staying humble, practicing consistently, and learning something new every single day. Let's connect!
+          </p>
+        </div>
+
+        <div class="about-cta-row">
+          <a href="#contact" class="gradient-pill-btn magnetic-btn">
+            <span>GET IN TOUCH</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 5: WHAT I LEARN / FOCUS AREAS (High-Contrast White Section with 3D Relief Typography) -->
+  <section class="services-light-section" id="learning">
+    <div class="services-container">
+      
+      <h2 class="services-title-3d">
+        WHAT I LEARN
+      </h2>
+
+      <div class="service-rows-list">
+        
+        <div class="service-row-item">
+          <div class="service-num-3d">01</div>
+          <div class="service-info">
+            <h3 class="service-name">COMPUTER APPLICATIONS & CODING (BEGINNER)</h3>
+            <p class="service-desc">
+              Practicing fundamental programming in Python and C++. Learning core concepts like variables, conditionals, loops, functions, lists, and basic algorithm logic without claiming advance expertise.
+            </p>
+          </div>
+        </div>
+
+        <div class="service-row-item">
+          <div class="service-num-3d">02</div>
+          <div class="service-info">
+            <h3 class="service-name">DATA ANALYTICS & STATISTICAL CONCEPTS</h3>
+            <p class="service-desc">
+              Exploring numerical analysis, statistics (averages, distributions, variance), and working with simple datasets to understand how numbers tell stories.
+            </p>
+          </div>
+        </div>
+
+        <div class="service-row-item">
+          <div class="service-num-3d">03</div>
+          <div class="service-info">
+            <h3 class="service-name">ECONOMICS & BUSINESS ANALYSIS</h3>
+            <p class="service-desc">
+              Studying micro and macroeconomic theory at Delhi University: understanding demand elasticity, cost functions, market equilibrium, and economic decision-making.
+            </p>
+          </div>
+        </div>
+
+        <div class="service-row-item">
+          <div class="service-num-3d">04</div>
+          <div class="service-info">
+            <h3 class="service-name">ARTIFICIAL INTELLIGENCE & MODERN WEB</h3>
+            <p class="service-desc">
+              Curious about emerging AI tools, machine learning fundamentals, and modern web experiments that make interactive learning engaging and fun.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION: CERTIFICATIONS & CREDENTIALS
+       ========================================================================= -->
+  <section class="certifications-section" id="certifications">
+    <div class="certs-container">
+      
+      <div class="certs-header-box">
+        <span class="certs-badge">VERIFIED LEARNING & CREDENTIALS</span>
+        <h2 class="certs-main-title">YOUR CERTIFICATIONS</h2>
+        <p class="certs-sub-desc">
+          Official foundational learning certifications completed alongside my college degree in Computer Applications & Economics.
+        </p>
+      </div>
+
+      <div class="certs-grid">
+        
+        <!-- Certificate 01: HP LIFE Social Media Marketing -->
+        <div class="cert-card-premium" data-tilt>
+          <div class="cert-accent-glow"></div>
+          
+          <div class="cert-top-bar">
+            <div class="cert-org-badge">
+              <div class="org-icon-hp">
+                <span class="hp-txt">hp</span>
+                <span class="hp-life">LIFE</span>
+              </div>
+              <div class="org-meta">
+                <span class="org-label">ISSUING ORGANIZATION</span>
+                <strong class="org-name">HP LIFE</strong>
+              </div>
+            </div>
+
+            <div class="cert-verified-pill">
+              <span class="pill-check">✓</span>
+              <span>VERIFIED COMPLETION</span>
+            </div>
+          </div>
+
+          <div class="cert-body">
+            <div class="cert-category-wrap">
+              <span class="cert-category-tag">CATEGORY: DIGITAL MARKETING</span>
+              <span class="cert-level-tag">FOUNDATION PROGRAM</span>
+            </div>
+
+            <h3 class="cert-title">Social Media Marketing</h3>
+            
+            <p class="cert-desc">
+              Comprehensive foundation-level course by HP LIFE covering strategic social media marketing concepts, target audience identification, content planning, brand voice development, and digital marketing strategies to reach and engage customers online.
+            </p>
+
+            <div class="cert-skills-block">
+              <span class="skills-block-label">SKILLS LEARNED & PRACTICED:</span>
+              <div class="cert-skill-pills">
+                <span class="c-skill-tag"><span class="tag-bullet">✦</span> Social Media Marketing</span>
+                <span class="c-skill-tag"><span class="tag-bullet">✦</span> Digital Marketing</span>
+                <span class="c-skill-tag"><span class="tag-bullet">✦</span> Online Branding</span>
+                <span class="c-skill-tag"><span class="tag-bullet">✦</span> Target Audience Analysis</span>
+                <span class="c-skill-tag"><span class="tag-bullet">✦</span> Digital Business Growth</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-footer">
+            <div class="cert-footer-left">
+              <span class="cred-dot-live"></span>
+              <span>HP Foundation Global Program • Completed Course</span>
+            </div>
+            <div class="cert-footer-right">
+              <span class="hp-pill-badge">HP LIFE CERTIFICATE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate 02: AI Foundation Course by OpenAI -->
+        <div class="cert-card-premium" data-tilt>
+          <div class="cert-accent-glow cert-accent-openai"></div>
+          
+          <div class="cert-top-bar">
+            <div class="cert-org-badge">
+              <div class="org-icon-openai">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.259 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7466-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1683a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4947zm-9.66-4.5042a4.471 4.471 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1402-2.0252zm-1.6373-8.8184a4.471 4.471 0 0 1 2.3418-1.9725V12.75a.7712.7712 0 0 0 .3879.6766l5.8144 3.3543-2.02 1.1683a.0757.0757 0 0 1-.071 0l-4.8303-2.7866a4.4992 4.4992 0 0 1-1.6228-5.9826zm16.5583 3.6599l-5.8428-3.3732 2.02-1.1635a.0804.0804 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.402-.6816zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 10.2297V7.8974a.0804.0804 0 0 1 .0332-.0615l4.999-2.8804a4.5087 4.5087 0 0 1 6.6454 4.3168zm-12.6413-4.137a4.4852 4.4852 0 0 1 2.8764 1.0408l-.1419.0805-4.7783 2.7581a.7948.7948 0 0 0-.3927.6813v6.7369l-2.02-1.1683a.0757.0757 0 0 1-.038-.052v-5.5826a4.504 4.504 0 0 1 4.4945-4.4947zm1.1059 5.3444l2.8055-1.6203 2.8055 1.6203v3.2407l-2.8055 1.6204-2.8055-1.6204z"/>
+                </svg>
+              </div>
+              <div class="org-meta">
+                <span class="org-label">ISSUING ORGANIZATION</span>
+                <strong class="org-name">OpenAI</strong>
+              </div>
+            </div>
+
+            <div class="cert-verified-pill pill-openai">
+              <span class="pill-check">✓</span>
+              <span>VERIFIED COURSE</span>
+            </div>
+          </div>
+
+          <div class="cert-body">
+            <div class="cert-category-wrap">
+              <span class="cert-category-tag tag-ai">CATEGORY: ARTIFICIAL INTELLIGENCE</span>
+              <span class="cert-level-tag">FOUNDATION PROGRAM</span>
+            </div>
+
+            <h3 class="cert-title">AI Foundation Course</h3>
+            
+            <p class="cert-desc">
+              Comprehensive foundation program by OpenAI exploring artificial intelligence principles, machine learning concepts, neural model foundations, prompt architecture, and emerging AI technologies transforming industries.
+            </p>
+
+            <div class="cert-skills-block">
+              <span class="skills-block-label">SKILLS LEARNED & PRACTICED:</span>
+              <div class="cert-skill-pills">
+                <span class="c-skill-tag tag-openai"><span class="tag-bullet-green">✦</span> AI Fundamentals</span>
+                <span class="c-skill-tag tag-openai"><span class="tag-bullet-green">✦</span> Basic AI Concepts</span>
+                <span class="c-skill-tag tag-openai"><span class="tag-bullet-green">✦</span> Emerging Technologies</span>
+                <span class="c-skill-tag tag-openai"><span class="tag-bullet-green">✦</span> Neural Model Basics</span>
+                <span class="c-skill-tag tag-openai"><span class="tag-bullet-green">✦</span> Modern AI Applications</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-footer">
+            <div class="cert-footer-left">
+              <span class="cred-dot-live cred-dot-openai"></span>
+              <span>OpenAI Learning • Foundation Credential</span>
+            </div>
+            <div class="cert-footer-right">
+              <span class="hp-pill-badge badge-openai">OPENAI CERTIFICATE</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 6: STACKED LEARNING EXPLORATIONS CARDS -->
+  <section class="stacked-projects-section" id="explorations">
+    <div class="stacked-container">
+      <div class="section-title-wrapper">
+        <span class="sub-label">ACADEMIC & LEARNING PRACTICE</span>
+        <h2 class="section-heading-dark">EXPLORATIONS</h2>
+      </div>
+
+      <!-- Card 01 -->
+      <div class="stacked-card-frame">
+        <div class="stacked-card-header">
+          <div class="card-num-title">
+            <span class="c-num">01</span>
+            <div class="c-title-box">
+              <span class="c-tag">PRACTICE REPOSITORY</span>
+              <h3 class="c-name">PYTHON & C++ FUNDAMENTALS LAB</h3>
+            </div>
+          </div>
+          <a href="#contact" class="pill-outline-btn">
+            <span>CONNECT</span>
+          </a>
+        </div>
+
+        <div class="stacked-dual-mockups">
+          <div class="mockup-thumb thumb-code">
+            <div class="thumb-header">
+              <span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span>
+              <span class="t-title">student_practice.py</span>
+            </div>
+            <div class="thumb-body">
+              <code><span class="c-blue">def</span> <span class="c-yellow">compute_average</span>(grades):<br>&nbsp;&nbsp;<span class="c-purple">return</span> sum(grades) / len(grades)<br><br><span class="c-green"># Student practice in Delhi University</span><br><span class="c-gray">&gt;&gt;&gt; Ready [OK]</span></code>
+            </div>
+          </div>
+          <div class="mockup-thumb thumb-terminal">
+            <div class="thumb-header">
+              <span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span>
+              <span class="t-title">fundamentals.cpp</span>
+            </div>
+            <div class="thumb-body">
+              <code><span class="c-blue">#include</span> <span class="c-green">&lt;iostream&gt;</span><br><span class="c-purple">int</span> main() {<br>&nbsp;&nbsp;std::cout &lt;&lt; <span class="c-yellow">"Hello from Lucky Kadam (DU)"</span>;<br>&nbsp;&nbsp;<span class="c-purple">return</span> 0;<br>}</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 02 -->
+      <div class="stacked-card-frame">
+        <div class="stacked-card-header">
+          <div class="card-num-title">
+            <span class="c-num">02</span>
+            <div class="c-title-box">
+              <span class="c-tag">INTERACTIVE WEB</span>
+              <h3 class="c-name">MODERN 3D WEB CONCEPTS & THREE.JS</h3>
+            </div>
+          </div>
+          <a href="#skills-3d-lab" class="pill-outline-btn">
+            <span>TRY 16:9 LAB</span>
+          </a>
+        </div>
+
+        <div class="stacked-dual-mockups">
+          <div class="mockup-thumb thumb-web-1">
+            <div class="thumb-header">
+              <span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span>
+              <span class="t-title">physics_spheres.js</span>
+            </div>
+            <div class="thumb-preview-art art-bg-violet">
+              <div class="mini-ui-badge">NOOMO 3D PHYSICS</div>
+            </div>
+          </div>
+          <div class="mockup-thumb thumb-web-2">
+            <div class="thumb-header">
+              <span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span>
+              <span class="t-title">avatar_tracking.js</span>
+            </div>
+            <div class="thumb-preview-art art-bg-sunset">
+              <div class="mini-ui-badge">EYE TRACKING LOGIC</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 03 -->
+      <div class="stacked-card-frame">
+        <div class="stacked-card-header">
+          <div class="card-num-title">
+            <span class="c-num">03</span>
+            <div class="c-title-box">
+              <span class="c-tag">ECONOMICS STUDY</span>
+              <h3 class="c-name">MARKET ELASTICITY & COST REASONING</h3>
+            </div>
+          </div>
+          <a href="#contact" class="pill-outline-btn">
+            <span>CONNECT</span>
+          </a>
+        </div>
+
+        <div class="stacked-dual-mockups">
+          <div class="mockup-thumb thumb-econ-1">
+            <div class="thumb-header">
+              <span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span>
+              <span class="t-title">elasticity_demo.py</span>
+            </div>
+            <div class="thumb-preview-art art-bg-teal">
+              <div class="mini-ui-badge">DEMAND & SUPPLY CURVES</div>
+            </div>
+          </div>
+          <div class="mockup-thumb thumb-econ-2">
+            <div class="thumb-header">
+              <span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span>
+              <span class="t-title">academic_notes.md</span>
+            </div>
+            <div class="thumb-preview-art art-bg-fire">
+              <div class="mini-ui-badge">B.A. COURSEWORK</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 7: STUDENT MINDSET & PILLARS GRID -->
+  <section class="testimonials-dark-section">
+    <div class="testi-container">
+      <div class="testi-grid">
+        
+        <div class="testi-pill-card">
+          <div class="testi-header">
+            <div class="avatar-small">🎓</div>
+            <div class="testi-author">
+              <span class="t-name">Undergraduate Student</span>
+              <span class="t-org">Dyal Singh College, DU</span>
+            </div>
+          </div>
+          <p class="testi-quote">
+            "Pursuing B.A. Computer Applications & Economics. Connecting computing logic with economic and business analysis."
+          </p>
+        </div>
+
+        <div class="testi-pill-card">
+          <div class="testi-header">
+            <div class="avatar-small">🌱</div>
+            <div class="testi-author">
+              <span class="t-name">Learning Level</span>
+              <span class="t-org">Beginner in Python & C++</span>
+            </div>
+          </div>
+          <p class="testi-quote">
+            "Honest about being at the start of my journey. Practicing fundamentals with curiosity and continuous effort."
+          </p>
+        </div>
+
+        <div class="testi-pill-card">
+          <div class="testi-header">
+            <div class="avatar-small">📊</div>
+            <div class="testi-author">
+              <span class="t-name">Analytical Focus</span>
+              <span class="t-org">Data & Economics</span>
+            </div>
+          </div>
+          <p class="testi-quote">
+            "Fascinated by numbers, economic trends, and learning how data analysis can reveal practical patterns."
+          </p>
+        </div>
+
+        <div class="testi-pill-card">
+          <div class="testi-header">
+            <div class="avatar-small">🤖</div>
+            <div class="testi-author">
+              <span class="t-name">Emerging Tech</span>
+              <span class="t-org">AI & Interactive 3D</span>
+            </div>
+          </div>
+          <p class="testi-quote">
+            "Exploring modern tools like AI assistants, Three.js 3D web engines, and modern frontend design."
+          </p>
+        </div>
+
+        <div class="testi-pill-card">
+          <div class="testi-header">
+            <div class="avatar-small">📍</div>
+            <div class="testi-author">
+              <span class="t-name">Location</span>
+              <span class="t-org">Ghaziabad, UP, India</span>
+            </div>
+          </div>
+          <p class="testi-quote">
+            "Based in Ghaziabad (Delhi NCR). Always excited to connect with mentors, peers, and tech enthusiasts."
+          </p>
+        </div>
+
+        <div class="testi-pill-card">
+          <div class="testi-header">
+            <div class="avatar-small">✨</div>
+            <div class="testi-author">
+              <span class="t-name">Student Mindset</span>
+              <span class="t-org">Curiosity & Growth</span>
+            </div>
+          </div>
+          <p class="testi-quote">
+            "Not claiming to be an expert — I love experimenting, solving problems, and building projects to learn."
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: HIGH-IMPACT FOOTER & GEOMETRIC RIBBON -->
+  <footer class="footer-wrap" id="contact">
+    
+    <!-- Upper Light Section: GET IN TOUCH -->
+    <div class="footer-upper-light">
+      <div class="ful-container">
+        <div class="ful-left">
+          <div class="floating-balloon-toy">🎈</div>
+          <h2 class="ful-title">GET IN TOUCH</h2>
+          <a href="mailto:luckykadam330@gmail.com" class="ful-email-link">
+            luckykadam330@gmail.com
+          </a>
+        </div>
+
+        <div class="ful-right">
+          <form id="quick-contact-form" class="ful-form">
+            <input type="email" id="quick-email" placeholder="Enter your email to connect with Lucky..." required />
+            <button type="submit" class="ful-send-btn magnetic-target">SEND</button>
+          </form>
+          <div id="quick-feedback" class="quick-feedback-msg" style="display: none;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lower Dark Pill Footer with LUCKY KADAM Outline Text & Links -->
+    <div class="footer-lower-dark">
+      <div class="fld-container">
+        
+        <div class="fld-top-row">
+          
+          <!-- Stacked Brand: LUCKY (solid) + KADAM (outline) -->
+          <div class="fld-brand-block">
+            <span class="brand-solid">LUCKY</span>
+            <span class="brand-outline">KADAM</span>
+          </div>
+
+          <!-- Social Links Column -->
+          <div class="fld-col">
+            <h4 class="fld-col-title">SOCIAL</h4>
+            <ul class="fld-links">
+              <li>
+                <a href="https://www.linkedin.com/in/lucky-ashok-kadam-931b7a435" target="_blank" rel="noopener noreferrer">
+                  LinkedIn ↗
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/lucky_kadam3/" target="_blank" rel="noopener noreferrer">
+                  Instagram ↗
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/luckyashokkadam" target="_blank" rel="noopener noreferrer">
+                  GitHub ↗
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Details Column -->
+          <div class="fld-col">
+            <h4 class="fld-col-title">CONTACT</h4>
+            <ul class="fld-links">
+              <li>
+                <a href="mailto:luckykadam330@gmail.com">luckykadam330@gmail.com</a>
+              </li>
+              <li class="fld-text-muted">Ghaziabad, Uttar Pradesh, India</li>
+              <li class="fld-text-muted">Dyal Singh College (University of Delhi)</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- The Colorful Geometric Shapes Ribbon -->
+        <div class="geometric-shape-ribbon" aria-hidden="true">
+          <div class="geo-shape shape-cross">
+            <span></span><span></span>
+          </div>
+          <div class="geo-shape shape-four-dots">
+            <i></i><i></i><i></i><i></i>
+          </div>
+          <div class="geo-shape shape-arc"></div>
+          <div class="geo-shape shape-purple-circle"></div>
+          <div class="geo-shape shape-chevron">
+            <svg width="42" height="42" viewBox="0 0 42 42">
+              <path d="M5 5 L37 37 M5 37 L37 5" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="geo-shape shape-orange-half"></div>
+          <div class="geo-shape shape-triangle"></div>
+          <div class="geo-shape shape-donut-ring"></div>
+        </div>
+
+        <div class="fld-copyright-row">
+          <p>© 2026 Lucky Ashok Kadam • Student Portfolio • Dyal Singh College, University of Delhi</p>
+        </div>
+
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast-box"></div>
+
+  <!-- Script Engine with Three.js Physics Spheres -->
+  <script src="script.js"></script>
+</body>
+</html>
